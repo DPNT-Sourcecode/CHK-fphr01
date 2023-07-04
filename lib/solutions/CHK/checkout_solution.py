@@ -10,6 +10,8 @@ PRICES = {
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus:str) -> int:
+    if not isinstance(skus, str) or not set(skus).issubset(PRICES):
+        return -1
     sorted_skus = "".join(sorted(skus))
     list_of_grouped_skus = []
     current_sku = ""
@@ -24,5 +26,6 @@ def checkout(skus:str) -> int:
         current_sku = ""
     
 def sort_and_list_group_skus(skus: str) -> List[str]
+
 
 
