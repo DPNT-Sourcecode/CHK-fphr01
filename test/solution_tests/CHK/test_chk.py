@@ -32,6 +32,11 @@ def test_no_bogof():
 def test_offers_with_no_bogof():
     assert checkout_solution.checkout("ABCDEFABCDEF") == 300
     
+def test_new_additions_to_skus(): 
+    # 525 + RRRQ(150) + UUUU(120) + U(40) + Z(50) 
+    
+    assert checkout_solution.checkout("ABAFBAFBBAAFAAAEECRRRQQUUUUUZ") == 885
+    
 def test_all_skus():
     assert checkout_solution.checkout("ABCD") == 115
     
