@@ -18,11 +18,12 @@ def checkout(skus:str) -> int:
     if not isinstance(skus, str) or not set(skus).issubset(PRICES):
         return -1
     
-    skus_present = set(skus) 
+    skus_present_count = { item: skus.count(item) for item in set(skus) }
 
-    value = 0
     
-    for item in skus_present:
+    value = 0
+    for item in OFFERS.keys():
+        if 
         quantity_of_item = skus.count(item)
         if item in OFFERS:
             required_quantity = OFFERS[item][0]
