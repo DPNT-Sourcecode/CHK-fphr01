@@ -42,6 +42,3 @@ def test_illegal_input():
     assert checkout_solution.checkout(1) == -1
     
     
-
-
-

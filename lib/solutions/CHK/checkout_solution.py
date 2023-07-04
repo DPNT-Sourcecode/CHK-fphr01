@@ -34,12 +34,18 @@ OFFERS = {
     "B": {2: 45},
     "F": {3: 20},
     "H": {5:45, 10:80},
-    
+    "K": {2:150},
+    "P": {5: 200},
+    "Q": {3:80},
+    "U": {4: 120},
+    "V": {2: 90, 3: 130},
     }
 
 FREE_OFFERS = {
     "E": {2: "B"},
-}
+    "N": {3: "M"},
+    "R": {3: "Q"},
+    }
 
 def checkout(skus:str) -> int:
     if not isinstance(skus, str) or not set(skus).issubset(PRICES):
@@ -74,9 +80,3 @@ def checkout(skus:str) -> int:
             
             
     return value
-
-
-
-
-
-
