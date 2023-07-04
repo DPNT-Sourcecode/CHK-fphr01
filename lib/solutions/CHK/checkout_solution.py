@@ -71,6 +71,10 @@ def checkout(skus: str) -> int:
     skus_present_count = delete_empty_counts(skus_present_count)
 
     for group in GROUP_OFFERS.keys():
+        if not any(
+            sku_element in set(group) for sku_element in skus_present_count.keys()
+        ):
+            continue
         quantity_required = GROUP_OFFERS[group][0]
         offer_price = GROUP_OFFERS[group][1]
 
@@ -119,5 +123,6 @@ def delete_empty_counts(count_dict: dict) -> dict:
         count_dict.pop(key)
 
     return count_dict
+
 
 
