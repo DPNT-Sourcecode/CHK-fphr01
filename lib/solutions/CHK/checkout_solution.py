@@ -71,7 +71,6 @@ def checkout(skus:str) -> int:
                 
                 if isinstance(OFFERS[item][required_offer_num],int):
                     while skus_present_count[item]>= required_offer_num:
-                        print(skus_present_count)
                         value += OFFERS[item][required_offer_num]
                         skus_present_count[item] -= required_offer_num
                         
@@ -80,3 +79,4 @@ def checkout(skus:str) -> int:
             
             
     return value
+
