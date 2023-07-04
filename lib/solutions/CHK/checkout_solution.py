@@ -96,7 +96,8 @@ def checkout(skus: str) -> int:
         group_items = ""
         for sku_list in sorted_list:
             print(sku_list)
-            while sku_list[1] > 0 and len(group_items) < quantity_required:
+            sku_list_range = sku_list[1] + 1
+            for x in range(sku_list_range):
                 print(sku_list)
                 if len(group_items) == quantity_required:
                     print("adding to VALUE here")
@@ -133,4 +134,5 @@ def delete_empty_counts(count_dict: dict) -> dict:
         count_dict.pop(key)
 
     return count_dict
+
 
