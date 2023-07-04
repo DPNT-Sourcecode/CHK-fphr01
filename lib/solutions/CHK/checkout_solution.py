@@ -87,12 +87,13 @@ def checkout(skus: str) -> int:
 
         group_items = ""
         for sku_list in sorted_list:
-            sku_list_quantity = sku_list[1]
             while len(group_items) <= quantity_required or sku_list[1] > 0:
                 if len(group_items) == quantity_required:
                     value += offer_price
                     for item in group_items:
-                        skus_present_count[item] -= 1
+                        skus_present_count[item] = max(
+                            0, skus_present_count.get(item, 0) - 1
+                        )
                 group_items += sku_list[0]
                 sku_list[1] -= 1
 
@@ -103,7 +104,7 @@ def checkout(skus: str) -> int:
                     while skus_present_count[item] >= required_offer_num:
                         value += OFFERS[item][required_offer_num]
                         skus_present_count[item] -= required_offer_num
-
+    print(value)
     for sku, count in skus_present_count.items():
         value += PRICES[sku] * count
 
@@ -119,3 +120,4 @@ def delete_empty_counts(count_dict: dict) -> dict:
         count_dict.pop(key)
 
     return count_dict
+
