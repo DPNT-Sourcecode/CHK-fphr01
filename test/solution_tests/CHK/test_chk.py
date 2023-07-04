@@ -28,7 +28,7 @@ def test_no_bogof():
     assert checkout_solution.checkout("FF") == 20
 
 def test_offers_with_no_bogof():
-    assert checkout_solution.checkout("ABCDEFABCDEF") = 300
+    assert checkout_solution.checkout("ABCDEFABCDEF") == 300
     
 def test_all_skus():
     assert checkout_solution.checkout("ABCD") == 115
@@ -40,4 +40,5 @@ def test_illegal_input():
     assert checkout_solution.checkout(1) == -1
     
     
+
 
