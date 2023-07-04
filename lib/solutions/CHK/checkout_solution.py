@@ -15,4 +15,11 @@ def checkout(skus:str) -> int:
     for sku in sorted_skus:
         if not current_sku:
             current_sku += sku
+            continue
+        if sku == current_sku[-1]:
+            current_sku += sku
+            continue
+        list_of_grouped_skus.append(current_sku)
+        current_sku = ""
     
+
