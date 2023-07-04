@@ -37,6 +37,9 @@ def test_new_additions_to_skus():
     
     assert checkout_solution.checkout("ABAFBAFBBAAFAAAEECRRRQQUUUUUZ") == 915
     
+def test_group_deal():
+    assert checkout_solution.checkout("STXYZ") == 82
+    
 def test_all_skus():
     assert checkout_solution.checkout("ABCD") == 115
     
