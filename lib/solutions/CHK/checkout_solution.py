@@ -19,7 +19,7 @@ def checkout(skus:str) -> int:
     if not isinstance(skus, str) or not set(skus).issubset(PRICES):
         return -1
     
-    skus_present_count = { item: skus.count(item) for item in skus) }
+    skus_present_count = { item: skus.count(item) for item in skus }
 
     breakpoint()
     value = 0
@@ -32,10 +32,11 @@ def checkout(skus:str) -> int:
                     while skus_present_count[item]>= required_offer_num:
                         skus_present_count[free_sku] = max(0, skus_present_count.get(free_sku, 0)-1)
                         skus_present_count[item] -= required_offer_num
+                        
+                        print(skus_present_count)
                 
                 if isinstance(OFFERS[item][required_offer_num],int):
                     while skus_present_count[item]>= required_offer_num:
-                        breakpoint()
                         value += OFFERS[item][required_offer_num]
                         skus_present_count[item] -= required_offer_num
                         
@@ -44,3 +45,4 @@ def checkout(skus:str) -> int:
             
             
     return value
+
