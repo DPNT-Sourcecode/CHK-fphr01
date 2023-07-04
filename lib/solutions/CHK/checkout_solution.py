@@ -23,17 +23,20 @@ def checkout(skus:str) -> int:
     
     value = 0
     for item in OFFERS.keys():
-        if 
-        quantity_of_item = skus.count(item)
-        if item in OFFERS:
-            required_quantity = OFFERS[item][0]
-            offer_quantity, single_quantity = divmod(quantity_of_item, required_quantity)
-            
-            value += offer_quantity*OFFERS[item][1]
-            value += single_quantity*PRICES[item]
+        if item in skus_present_count:
+
             
         else:
             value += quantity_of_item*PRICES[item]
             
     return value
             
+
+        # quantity_of_item = skus.count(item)
+        # if item in OFFERS:
+        #     required_quantity = OFFERS[item][0]
+        #     offer_quantity, single_quantity = divmod(quantity_of_item, required_quantity)
+            
+        #     value += offer_quantity*OFFERS[item][1]
+        #     value += single_quantity*PRICES[item]
+
