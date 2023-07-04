@@ -1,6 +1,5 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
-from typing import List
 PRICES = {
     "A": 50,
     "B": 30,
