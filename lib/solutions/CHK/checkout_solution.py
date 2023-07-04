@@ -97,5 +97,3 @@ def delete_empty_counts(count_dict: dict) -> dict:
         count_dict.pop(key)
         
     return count_dict
-
-
