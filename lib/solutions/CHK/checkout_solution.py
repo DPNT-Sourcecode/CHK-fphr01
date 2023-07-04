@@ -85,12 +85,13 @@ def checkout(skus:str) -> int:
         counter = 0
         for sku_list in sorted_list:
             sku_list_quantity = sku_list[1]
-            while counter <= quantity_required and counter <= sku_list_quantity:
+            while len(group_items) <= quantity_required and len(group_items) <= sku_list_quantity:
                 if counter ==quantity_required:
                     value += offer_price
                     for item in group_items:
                         skus_present_count[item] -= 1
                     counter = 0
+                for 
                     
     for item in OFFERS.keys():
         if item in skus_present_count:
@@ -116,6 +117,7 @@ def delete_empty_counts(count_dict: dict) -> dict:
         count_dict.pop(key)
         
     return count_dict
+
 
 
 
