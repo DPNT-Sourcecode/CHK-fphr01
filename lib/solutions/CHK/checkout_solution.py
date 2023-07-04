@@ -51,8 +51,3 @@ def checkout(skus:str) -> int:
             
             
     return value
-
-
-
-
-
