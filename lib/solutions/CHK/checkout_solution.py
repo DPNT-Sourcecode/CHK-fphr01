@@ -21,10 +21,10 @@ def checkout(skus:str) -> int:
     
     skus_present_count = { item: skus.count(item) for item in skus }
 
-    breakpoint()
     value = 0
     for item in OFFERS.keys():
         if item in skus_present_count:
+            print(skus_present_count)
             for required_offer_num in sorted(OFFERS[item], reverse=True):
                 
                 if isinstance(OFFERS[item][required_offer_num],str):
@@ -37,6 +37,7 @@ def checkout(skus:str) -> int:
                 
                 if isinstance(OFFERS[item][required_offer_num],int):
                     while skus_present_count[item]>= required_offer_num:
+                        print(skus_present_count)
                         value += OFFERS[item][required_offer_num]
                         skus_present_count[item] -= required_offer_num
                         
@@ -45,4 +46,5 @@ def checkout(skus:str) -> int:
             
             
     return value
+
 
