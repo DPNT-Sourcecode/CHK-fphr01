@@ -15,6 +15,10 @@ OFFERS = {
     "E": {2: "B"}
     }
 
+FREE_OFFERS = {
+    "E": {2: "B"}
+}
+
 def checkout(skus:str) -> int:
     if not isinstance(skus, str) or not set(skus).issubset(PRICES):
         return -1
@@ -40,11 +44,13 @@ def checkout(skus:str) -> int:
                         print(skus_present_count)
                         value += OFFERS[item][required_offer_num]
                         skus_present_count[item] -= required_offer_num
+        print(f"value after {item} is {value}")
                         
     for sku, count in skus_present_count.items():
         value += PRICES[sku]*count
             
             
     return value
+
 
 
