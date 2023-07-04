@@ -48,7 +48,7 @@ FREE_OFFERS = {
     }
 
 GROUP_OFFERS = {
-    "STXYZ" : {3, 45}
+    "STXYZ" : [3, 45]
 }
 
 def checkout(skus:str) -> int:
@@ -72,6 +72,9 @@ def checkout(skus:str) -> int:
     skus_present_count = delete_empty_counts(skus_present_count)
     
     for group in GROUP_OFFERS.keys():
+        quantity_required = GROUP_OFFERS[group][0]
+        offer_price = GROUP_OFFERS[group][1]
+
         valid_for_group_offer_count = []
         for sku in group:
             valid_for_group_offer_count.append([sku,skus_present_count.get(sku, 0), PRICES[sku]])
@@ -82,12 +85,12 @@ def checkout(skus:str) -> int:
         counter = 0
         for sku_list in sorted_list:
             sku_list_quantity = sku_list[1]
-            while counter <= 3 and counter <= sku_list_quantity:
-                if counter ==3:
-                    value += GROUP_OFFERS[group]
+            while counter <= quantity_required and counter <= sku_list_quantity:
+                if counter ==quantity_required:
+                    value += offer_price
                     for item in group_items:
                         skus_present_count[item] -= 1
-                        
+                    counter = 0
                     
     for item in OFFERS.keys():
         if item in skus_present_count:
@@ -113,6 +116,7 @@ def delete_empty_counts(count_dict: dict) -> dict:
         count_dict.pop(key)
         
     return count_dict
+
 
 
 
