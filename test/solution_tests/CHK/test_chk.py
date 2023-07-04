@@ -51,7 +51,7 @@ def test_group_deal():
 
 
 def test_group_deal_multiple():
-    assert checkout_solution.checkout("STXYZZ") == 90
+    assert checkout_solution.checkout("ZZYSTX") == 90
 
 
 def test_all_skus():
@@ -64,3 +64,4 @@ def test_illegal_skus():
 
 def test_illegal_input():
     assert checkout_solution.checkout(1) == -1
+

@@ -102,8 +102,10 @@ def checkout(skus: str) -> int:
                         skus_present_count[item] = max(
                             0, skus_present_count.get(item, 0) - 1
                         )
-                group_items += sku_list[0]
-                sku_list[1] -= 1
+                        group_items = ""
+                else:
+                    group_items += sku_list[0]
+                    sku_list[1] -= 1
 
     for item in OFFERS.keys():
         if item in skus_present_count:
@@ -127,6 +129,7 @@ def delete_empty_counts(count_dict: dict) -> dict:
         count_dict.pop(key)
 
     return count_dict
+
 
 
 
