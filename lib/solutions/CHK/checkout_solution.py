@@ -12,7 +12,6 @@ PRICES = {
 OFFERS = {
     "A": {3: 130, 5: 200},
     "B": {2: 45},
-    "E": {2: "B"}
     }
 
 FREE_OFFERS = {
@@ -28,13 +27,13 @@ def checkout(skus:str) -> int:
     value = 0
     for item in FREE_OFFERS.keys():
         if item in skus_present_count:
-            print(skus_present_count)
-            for required_offer_num in sorted(OFFERS[item], reverse=True):
+            for required_offer_num in sorted(FREE_OFFERS[item], reverse=True):
                 
-                if isinstance(OFFERS[item][required_offer_num],str):
-                    free_sku = OFFERS[item][required_offer_num]
+                if isinstance(FREE_OFFERS[item][required_offer_num],str):
+                    free_sku = FREE_OFFERS[item][required_offer_num]
                     while skus_present_count[item]>= required_offer_num:
                         skus_present_count[free_sku] = max(0, skus_present_count.get(free_sku, 0)-1)
+                        value += required_offer_num * PRICES[item]
                         skus_present_count[item] -= required_offer_num
                         
     for item in OFFERS.keys():
@@ -46,13 +45,13 @@ def checkout(skus:str) -> int:
                         print(skus_present_count)
                         value += OFFERS[item][required_offer_num]
                         skus_present_count[item] -= required_offer_num
-        print(f"value after {item} is {value}")
                         
     for sku, count in skus_present_count.items():
         value += PRICES[sku]*count
             
             
     return value
+
 
 
 
