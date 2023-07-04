@@ -25,8 +25,10 @@ def checkout(skus:str) -> int:
     for item in OFFERS.keys():
         if item in skus_present_count:
             for offer in sorted(OFFERS[item], reverse=True):
-                if isinstance(OFFERS[item][offer],str)
-                offer_quantity, single_quantity = divmod(, required_quantity)
+                if isinstance(OFFERS[item][offer],str):
+                    free_sku = OFFERS[item][offer]
+                    while skus_present_count[item]>= offer:
+                        skus_present_count[free_sku] = max(0, skus_present_count.get(free_sku, 0)-1)
             
                 
 
@@ -43,5 +45,6 @@ def checkout(skus:str) -> int:
             
         #     value += offer_quantity*OFFERS[item][1]
         #     value += single_quantity*PRICES[item]
+
 
 
