@@ -50,6 +50,10 @@ def test_group_deal():
     assert checkout_solution.checkout("STXYZ") == 82
 
 
+def test_group_deal_multiple():
+    assert checkout_solution.checkout("STXYZZ") == 90
+
+
 def test_all_skus():
     assert checkout_solution.checkout("ABCD") == 115
 
