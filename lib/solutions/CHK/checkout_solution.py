@@ -18,23 +18,18 @@ def checkout(skus:str) -> int:
     skus_present = set(skus) 
     if not isinstance(skus, str) or not set(skus).issubset(PRICES):
         return -1
-    skus_present = 
     
-def sort_and_list_group_skus(skus: str) -> List[str]
-    sorted_skus = "".join(sorted(skus))
-    list_of_grouped_skus = []
-    current_sku = ""
-    for sku in sorted_skus:
-        if not current_sku:
-            current_sku += sku
-            continue
-        if sku == current_sku[-1]:
-            current_sku += sku
-            continue
-        list_of_grouped_skus.append(current_sku)
-        current_sku = ""
-        
+    value = 0
     
+    for item in skus_present:
+        quantity_of_item = skus.count(item)
+        if item in OFFERS:
+            required_quantity = OFFERS[item][0]
+            offer_quantity, single_quantity = divmod(quantity_of_item, required_quantity)
+            
+            value += offer_quantity*OFFERS[item][1]
+            value += offer_quantity*PRICES[item][1]
+            
 
 
 
