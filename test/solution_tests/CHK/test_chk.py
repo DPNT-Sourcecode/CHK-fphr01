@@ -23,7 +23,9 @@ def test_checkout_all_with_free_offer_with_bogof():
     # 3F for 20 = 525
     assert checkout_solution.checkout("ABAFBAFBBAAFAAAEEC") == 525
     
-    
+def test_multi_buy_free_offer():
+    assert checkout_solution.checkout("BEBEEE") == 160
+
 def test_no_bogof():
     assert checkout_solution.checkout("FF") == 20
 
@@ -40,5 +42,6 @@ def test_illegal_input():
     assert checkout_solution.checkout(1) == -1
     
     
+
 
 
