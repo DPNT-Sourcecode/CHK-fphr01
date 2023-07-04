@@ -70,7 +70,13 @@ def checkout(skus:str) -> int:
                         skus_present_count[item] -= required_offer_num
                         
     skus_present_count = delete_empty_counts(skus_present_count)
+    
     for group in GROUP_OFFERS.keys():
+        valid_for_group_offer_count = []
+        for sku in group:
+            valid_for_group_offer_count.append([sku,skus_present_count.get(sku, 0), PRICES[sku]])
+        sorted_list = sorted(valid_for_group_offer_count, key=lambda x: x[2])
+
         
                     
     for item in OFFERS.keys():
@@ -97,3 +103,4 @@ def delete_empty_counts(count_dict: dict) -> dict:
         count_dict.pop(key)
         
     return count_dict
+
