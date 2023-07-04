@@ -9,8 +9,9 @@ PRICES = {
 
 # tuple with quantity required and offer price
 OFFERS = {
-    "A": (3, 130),
-    "B": (2, 45)
+    "A": {3: 130, 5: 200},
+    "B": {2: 45},
+    "E": {2: "B"}
     }
 
 def checkout(skus:str) -> int:
@@ -35,3 +36,4 @@ def checkout(skus:str) -> int:
             
     return value
             
+
