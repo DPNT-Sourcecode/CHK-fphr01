@@ -5,6 +5,7 @@ PRICES = {
     "B": 30,
     "C": 20,
     "D": 15,
+    "E": 40,
 }
 
 # tuple with quantity required and offer price
@@ -34,6 +35,7 @@ def checkout(skus:str) -> int:
                 
                 if isinstance(OFFERS[item][required_offer_num],int):
                     while skus_present_count[item]>= required_offer_num:
+                        breakpoint()
                         value += OFFERS[item][required_offer_num]
                         skus_present_count[item] -= required_offer_num
                         
@@ -42,6 +44,7 @@ def checkout(skus:str) -> int:
             
             
     return value
+
 
 
 
