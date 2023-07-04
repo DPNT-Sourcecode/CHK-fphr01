@@ -1,3 +1,4 @@
+from typing import List
 PRICES = {
     "A": 50,
     "AAA":130,
@@ -22,4 +23,6 @@ def checkout(skus:str) -> int:
         list_of_grouped_skus.append(current_sku)
         current_sku = ""
     
+def sort_and_list_group_skus(skus: str) -> List[str]
+
 
