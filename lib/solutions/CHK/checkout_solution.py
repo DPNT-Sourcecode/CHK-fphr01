@@ -34,11 +34,11 @@ def checkout(skus:str) -> int:
                 if isinstance(FREE_OFFERS[item][required_offer_num],str):
                     free_sku = FREE_OFFERS[item][required_offer_num]
                     while skus_present_count[item]>= required_offer_num:
-                        if free_sku == item and skus_present_count.get(free_sku, 0) > required_offer_num +1:
+                        if free_sku == item and skus_present_count.get(free_sku, 0) >= required_offer_num +1:
                             skus_present_count[free_sku] = max(0, skus_present_count.get(free_sku, 0)-1)
                             value += required_offer_num * PRICES[item]
                             skus_present_count[item] -= required_offer_num
-                        else:
+                        if free_sku != item:
                             skus_present_count[free_sku] = max(0, skus_present_count.get(free_sku, 0)-1)
                             value += required_offer_num * PRICES[item]
                             skus_present_count[item] -= required_offer_num
@@ -58,4 +58,5 @@ def checkout(skus:str) -> int:
             
             
     return value
+
 
