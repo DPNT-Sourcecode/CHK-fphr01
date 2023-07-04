@@ -47,6 +47,10 @@ FREE_OFFERS = {
     "R": {3: "Q"},
     }
 
+GROUP_OFFERS = {
+    "STXYZ" : {3, 45}
+}
+
 def checkout(skus:str) -> int:
     if not isinstance(skus, str) or not set(skus).issubset(PRICES):
         return -1
@@ -64,6 +68,10 @@ def checkout(skus:str) -> int:
                         skus_present_count[free_sku] = max(0, skus_present_count.get(free_sku, 0)-1)
                         value += required_offer_num * PRICES[item]
                         skus_present_count[item] -= required_offer_num
+                        
+    skus_present_count = delete_empty_counts(skus_present_count)
+    for group in GROUP_OFFERS.keys():
+        
                     
     for item in OFFERS.keys():
         if item in skus_present_count:
@@ -79,4 +87,15 @@ def checkout(skus:str) -> int:
             
             
     return value
+
+def delete_empty_counts(count_dict: dict) -> dict:
+    del_keys= []
+    for key, value in count_dict.items():
+        if value == 0:
+            del_keys.append(key)
+    for key in del_keys:
+        count_dict.pop(key)
+        
+    return count_dict
+
 
