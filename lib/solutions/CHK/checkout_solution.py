@@ -78,7 +78,13 @@ def checkout(skus:str) -> int:
         # sort list to prioritise higher value items
         sorted_list = sorted(valid_for_group_offer_count, key=lambda x: x[2], reverse=True)
         
+        group_items = ""
+        counter = 0
         for sku_list in sorted_list:
+            sku_list_quantity = sku_list[1]
+            while counter <= 3 and counter <= sku_list_quantity 
+            
+                
             
 
         
@@ -107,6 +113,7 @@ def delete_empty_counts(count_dict: dict) -> dict:
         count_dict.pop(key)
         
     return count_dict
+
 
 
 
