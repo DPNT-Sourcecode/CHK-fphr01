@@ -24,10 +24,14 @@ def checkout(skus:str) -> int:
     value = 0
     for item in OFFERS.keys():
         if item in skus_present_count:
+            for offer in sorted(OFFERS[item], reverse=True):
+                if isinstance(OFFERS[item][offer],str)
+                offer_quantity, single_quantity = divmod(, required_quantity)
+            
+                
 
             
         else:
-            value += quantity_of_item*PRICES[item]
             
     return value
             
@@ -39,4 +43,5 @@ def checkout(skus:str) -> int:
             
         #     value += offer_quantity*OFFERS[item][1]
         #     value += single_quantity*PRICES[item]
+
 
