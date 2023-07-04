@@ -9,6 +9,10 @@ PRICES = {
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus:str) -> int:
+    sorted_skus = "".join(sorted(skus))
+    list_of_grouped_skus = []
+    current_sku = ""
+    for sku in sorted_skus:
+        if not current_sku:
+            current_sku += sku
     
-    
-
